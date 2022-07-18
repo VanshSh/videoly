@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import axios from 'axios'
 import { loadGetInitialProps } from 'next/dist/shared/lib/utils'
 import { Video } from "../types"
+import VideoCard from '../components/VideoCard'
+import NoResult from "../components/NoResult"
 
 interface IProps {
   videos: Video[]
@@ -9,9 +11,21 @@ interface IProps {
 
 
 const Home = ({ videos }: IProps) => {
+
   return (
-    <div className='container' >
-      <h1>Hello World</h1>
+
+    <div className='flex flex-col gap-10 videos  h-full'>
+      {
+        videos.length ? (
+          videos.map((video: Video) => (
+            <VideoCard post={video} key={video._id} />
+          ))
+        )
+          :
+          (
+            <NoResult text={'No video found'} />
+          )
+      }
     </div>
   )
 }
