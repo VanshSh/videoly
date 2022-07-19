@@ -1,5 +1,5 @@
 import next, { NextPage } from "next";
-import { Video } from "../types";
+import { Video } from "./../types";
 import { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,7 @@ interface IProps {
  post: Video
 }
 const VideoCard: NextPage<IProps> = ({ post }) => {
- console.log('138');
+ console.log('134');
 
  return (
   <div className="flex flex-col border-b-2 border-gray-200 pb-6">
